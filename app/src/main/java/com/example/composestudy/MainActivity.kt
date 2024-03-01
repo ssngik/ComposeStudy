@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.saveable.rememberSaveable
 
 
 class MainActivity : ComponentActivity() {
@@ -41,7 +42,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(modifier: Modifier = Modifier) {
 
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
+    // 구성 변경, 프로세스 중단에도 성태 저장
+    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier) {
         if (shouldShowOnboarding) {
@@ -96,7 +98,8 @@ fun OnboardingPreview() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
 
-    var expanded by remember { mutableStateOf(false) }
+    // 아이템 상태 유지
+    var expanded by rememberSaveable { mutableStateOf(false) }
 
     val extraPadding = if (expanded) 48.dp else 0.dp
 
