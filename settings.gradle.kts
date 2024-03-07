@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ComposeStudy"
-include(":app")
+include(":basics_jetpack_compose")
+include(":basics_coroutine")
